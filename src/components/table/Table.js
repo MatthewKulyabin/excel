@@ -1,5 +1,5 @@
-import { ExcelComponent } from '@core/ExcelComponent.js';
-import { createTable } from '@/components/table/table.template.js';
+import {ExcelComponent} from '@core/ExcelComponent.js';
+import {createTable} from '@/components/table/table.template.js';
 import { $ } from '@core/dom.js';
 import { resizeHandler } from '@/components/table/table.resizing.js';
 import { shouldResize } from '@/components/table/table.functions.js';
@@ -14,7 +14,7 @@ export class Table extends ExcelComponent {
 	}
 
 	toHTML() {
-		return createTable(1000);
+		return createTable(20);
 	}
 
 	onMousedown(event) {
