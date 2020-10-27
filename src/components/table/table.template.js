@@ -4,8 +4,9 @@ const CODES = {
 }
 
 function toCell(_, col) {
+  console.log(row);
   return `
-    <div class="cell" contenteditable data-col="${String.fromCharCode(CODES.A + col)}${++col}" data-row="" data-cell="true"></div>
+    <div class="cell" contenteditable data-col="${String.fromCharCode(CODES.A + col)}${++col}" data-row="${row}" data-cell="true"></div>
   `
 }
 
