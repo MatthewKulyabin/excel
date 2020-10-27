@@ -5,13 +5,13 @@ const CODES = {
 
 function toCell(_, col) {
   return `
-    <div class="cell" contenteditable data-col="${col}"></div>
+    <div class="cell" contenteditable data-col="${String.fromCharCode(CODES.A + col)}${++col}" data-row="" data-cell="true"></div>
   `
 }
 
 function toColumn(col, index) {
   return `
-    <div class="column" data-type="resizable" data-col="${index}">
+    <div class="column" data-type="resizable" data-col="${String.fromCharCode(CODES.A + index)}">
       ${col}
       <div class="col-resize" data-resize="col"></div>
     </div>
