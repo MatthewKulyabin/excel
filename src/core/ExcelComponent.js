@@ -1,4 +1,5 @@
-import {DomListener} from '@core/DomListener'
+import {DomListener} from '@core/DomListener';
+import {ActiveRoute} from '@core/routes/ActiveRoute';
 
 export class ExcelComponent extends DomListener {
   constructor($root, options = {}) {
@@ -45,7 +46,14 @@ export class ExcelComponent extends DomListener {
   // Инициализируем компонент
   // Добавляем DOM слушателей
   init() {
-    this.initDOMListeners()
+    this.initDOMListeners();
+
+    this.$on('Header:delete', data => {
+      this.destroy();
+      this.$root.remove();
+      localStorage.removeItem(ActiveRoute.path);
+      location.assign('http://localhost:4000/#');
+    });
   }
 
   // Удаляем компонент

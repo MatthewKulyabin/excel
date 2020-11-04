@@ -50,3 +50,15 @@ export function debounce(fn, wait) {
     timeout = setTimeout(later, wait)
   }
 }
+
+export function clone(obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
+
+export function getFullDate(date) {
+  return `${date.getDate()}.${date.getMonth()}.${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+}
+
+export function preventDefault(event) {
+  event.preventDefault();
+}
