@@ -1,46 +1,57 @@
-import {DomListener} from '@core/DomListener';
+import {DomListener} from '@core/DomListener'
 
 export class ExcelComponent extends DomListener {
-	constructor($root, options = {}) {
-		super($root, options.listeners);
-		this.name = options.name || '';
-		this.emitter = options.emitter;
-		this.unsubscribers = [];
+  constructor($root, options = {}) {
+    super($root, options.listeners)
+    this.name = options.name || ''
+    this.emitter = options.emitter
+    this.subscribe = options.subscribe || []
+    this.store = options.store
+    this.unsubscribers = []
 
-		this.prepare();
-	}
+    this.prepare()
+  }
 
-	// Set up our component to init
-	prepare() {
-		
-	}
+  // Настраивааем наш компонент до init
+  prepare() {}
 
-	// Return component pattern
-	toHTML() {
-		return '';
-	}
+  // Возвращает шаблон компонента
+  toHTML() {
+    return ''
+  }
 
-	// Inform listeners about events
-	$emit(event, ...args) {
-		this.emitter.emit(event, ...args);
-	}
+  // Уведомляем слушателей про событие event
+  $emit(event, ...args) {
+    this.emitter.emit(event, ...args)
+  }
 
-	// Subscribe on event
-	$on(event, fn) {
-		const unsub = this.emitter.subscribe(event, fn);
-		this.unsubscribers.push(unsub);
-	}
+  // Подписываемся на событие event
+  $on(event, fn) {
+    const unsub = this.emitter.subscribe(event, fn)
+    this.unsubscribers.push(unsub)
+  }
 
-	// Component initializing
-	// Add DOM listeners
-	init() {
-		this.initDOMListeners();
-	}
+  $dispatch(action) {
+    this.store.dispatch(action)
+  }
 
-	// Delete component
-	// Remove listeners
-	destroy() {
-		this.removeDOMListeners();
-		this.unsubscribers.forEach(unsub => unsub());
-	}
+  // Сюда приходят только изменения по тем полям, на которые мы подписались
+  storeChanged() {}
+
+  isWatching(key) {
+    return this.subscribe.includes(key)
+  }
+
+  // Инициализируем компонент
+  // Добавляем DOM слушателей
+  init() {
+    this.initDOMListeners()
+  }
+
+  // Удаляем компонент
+  // Чистим слушатели
+  destroy() {
+    this.removeDOMListeners()
+    this.unsubscribers.forEach(unsub => unsub())
+  }
 }

@@ -3,7 +3,7 @@
 
 .db {
 
-  &_header {
+  &__header {
     position: fixed;
     left: 0;
     right: 0;
@@ -17,13 +17,13 @@
     z-index: 1000;
   }
 
-  &_new {
+  &__new {
     margin-top: $db-header-height;
     padding: 1.5rem;
     background: #dadce0;
   }
 
-  &_create {
+  &__create {
     width: 160px;
     height: 160px;
     background: #fff;
@@ -44,51 +44,51 @@
     }
   }
 
-  &_view {
+  &__view {
     max-width: 1000px;
     margin: 0 auto;
   }
 
-  &_table {
+  &__table {
     padding: 1rem;
   }
 
-  &_list-header {
-  	display: flex;
-  	justify-content: space-between;
-  	color: #202124;
-  	font-weight: 500;
-  	font-size: 16px;
-  	margin-bottom: 10px;
-  	padding: 0 12px;
+  &__list-header {
+    display: flex;
+    justify-content: space-between;
+    color: #202124;
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding: 0 12px;
   }
 
-  &_list {
-  	@include clear-list();
+  &__list {
+    @include clear-list;
   }
 
-  &_record {
-  	display: flex;
-  	justify-content: space-between;
-  	align-items: center;
-  	padding: 12px 14px 12px 16px;
-  	margin-bottom: 10px;
+  &__record {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 14px 12px 16px;
+    margin-bottom: 10px;
 
-  	&:hover {
-  		background: #e6f4ea;
-  		border-radius: 25px;
-  	}
+    &:hover {
+      background: #e6f4ea;
+      border-radius: 25px;
+    }
 
-  	a {
-  		text-decoration: none;
-  		cursor: pointer;
-  		color: #202124;
-  		font-size: 14px;
+    a {
+      text-decoration: none;
+      cursor: pointer;
+      color: #202124;
+      font-size: 14px;
 
-  		&:hover {
-  			text-decoration: underline;
-  		}
-  	}
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
 }
