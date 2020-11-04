@@ -29,6 +29,10 @@ class Dom {
     return this
   }
 
+  remove() {
+    this.$el.remove();
+  }
+
   on(eventType, callback) {
     this.$el.addEventListener(eventType, callback)
   }
