@@ -52,7 +52,7 @@ export class Header extends ExcelComponent {
         this.$emit('Header:delete', 'Header:delete');
       }
     } else if ($target.data.type === 'exit') {
-      ActiveRoute.navigate('http://localhost:4000/#');
+      ActiveRoute.navigate('#');
     }
   }
 }

@@ -52,7 +52,7 @@ export class ExcelComponent extends DomListener {
       this.destroy();
       this.$root.remove();
       localStorage.removeItem(ActiveRoute.path);
-      location.assign('http://localhost:4000/#');
+      location.assign('#');
     });
   }
 
